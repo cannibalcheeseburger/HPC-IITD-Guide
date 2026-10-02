@@ -1,6 +1,6 @@
 # Original Padum availability project
 
-Imported from the user-owned `~/HPC-availibility` on 2026-10-02. These files preserve the original implementation for reference; use `bash check_padum_nodes.sh` from the repository root for the maintained report. The archived wrapper writes files in its current directory and the archived Python script queries individual jobs. Hardware labels are inherited, unverified claims.
+Imported from the user-owned `~/HPC-availibility` on 2026-10-02. These files preserve the original implementation for reference; use `bash check_free_nodes.sh` from the repository root for the maintained report. The archived wrapper writes files in its current directory and the archived Python script queries individual jobs. Hardware labels are inherited, unverified claims.
 
 ## Original usage notes
 

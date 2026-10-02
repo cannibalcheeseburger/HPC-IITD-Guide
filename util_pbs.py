@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -71,6 +72,29 @@ def node_type_of(node_name, detail, mapping=None):
     prefix = re.sub(r'\d+$', '', host)
     mapping = NODE_TYPE_MAPPING if mapping is None else mapping
     return mapping.get(host, mapping.get(prefix, prefix))
+
+
+def detect_cluster(nodes):
+    """Infer labels from PBS node names, including offline captures."""
+    matches = set()
+    for name, detail in nodes.items():
+        host = short_host(detail.get('Mom') or name)
+        prefix = re.sub(r'\d+$', '', host)
+        for cluster, mapping in (('pragya', PRAGYA_NODE_TYPE_MAPPING),
+                                 ('padum', PADUM_NODE_TYPE_MAPPING)):
+            if host in mapping or prefix in mapping:
+                matches.add(cluster)
+    if len(matches) > 1:
+        raise ValueError('nodes match both clusters; set --cluster pragya or --cluster padum')
+    return next(iter(matches), 'generic')
+
+
+def select_cluster(requested, environment, nodes):
+    """CLI overrides HPC_CLUSTER; auto detects from the supplied node data."""
+    selection = requested if requested is not None else environment or 'auto'
+    if selection not in ('auto', 'pragya', 'padum'):
+        raise ValueError('HPC_CLUSTER must be auto, pragya, or padum')
+    return detect_cluster(nodes) if selection == 'auto' else selection
 
 
 def is_unavailable(detail):
@@ -277,8 +301,8 @@ def report_node_type(node_type, node_names, nodes, allocations, now):
 
 def main():
     parser = argparse.ArgumentParser(description='Report free resources and job end times on the PBS cluster.')
-    parser.add_argument('--cluster', choices=('pragya', 'padum'), default='pragya',
-                        help='cluster-specific node labels (default: pragya); queries the local PBS server')
+    parser.add_argument('--cluster', choices=('auto', 'pragya', 'padum'),
+                        help='node labels: CLI overrides HPC_CLUSTER; default: auto-detect from PBS nodes')
     parser.add_argument('--nodes-json', help="saved 'pbsnodes -F json -a' output (default: run pbsnodes)")
     parser.add_argument('--jobs-json', help="saved 'qstat -f -t -F json' output (default: run qstat)")
     args = parser.parse_args()
@@ -289,7 +313,14 @@ def main():
     nodes = node_data.get('nodes', {})
     if not nodes:
         sys.exit('Error: no nodes found in pbsnodes output.')
-    mapping = PADUM_NODE_TYPE_MAPPING if args.cluster == 'padum' else PRAGYA_NODE_TYPE_MAPPING
+    try:
+        cluster = select_cluster(args.cluster, os.environ.get('HPC_CLUSTER'), nodes)
+    except ValueError as error:
+        parser.error(str(error))
+    mapping = {'padum': PADUM_NODE_TYPE_MAPPING, 'pragya': PRAGYA_NODE_TYPE_MAPPING}.get(cluster, {})
+    if cluster == 'generic':
+        print('Cluster not recognized; reporting generic node prefixes. '
+              'Set HPC_CLUSTER or --cluster to select known labels.', file=sys.stderr)
     types = {name: node_type_of(name, detail, mapping) for name, detail in nodes.items()}
     now = datetime.fromtimestamp(jobs_data.get('timestamp', datetime.now().timestamp()))
 

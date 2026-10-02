@@ -24,20 +24,33 @@ docs/sources/      Raw external research notes
 examples/pragya/   Pragya PBS example
 examples/padum/    Padum PBS template (unverified)
 util_pbs.py        Shared PBS availability reporting
-check_free_nodes.sh  Pragya wrapper; check_nodes.sh is a compatibility alias
-check_padum_nodes.sh Padum wrapper
+check_free_nodes.sh  Shared availability wrapper
 ```
 
 ## Availability tools
 
-On a Pragya login node, with Python 3, pandas, `pbsnodes`, and `qstat` available:
+On either cluster’s login node, with Python 3, pandas, `pbsnodes`, and `qstat` available:
 
 ```bash
 bash check_free_nodes.sh
-# Alias: bash check_nodes.sh
 ```
 
-For offline input, pass captured PBS JSON: `python util_pbs.py --nodes-json nodes.json --jobs-json jobs.json`. For Padum, run `bash check_padum_nodes.sh` on a Padum login node, or add `--cluster padum` to the offline command. Both wrappers require Python 3 and pandas and query the local PBS server. See [Padum availability](docs/padum/06-checking-availability.md) for verification and migration details.
+Cluster labels are automatically detected from PBS node names. Override with an environment variable or command option (the option takes precedence):
+
+```bash
+HPC_CLUSTER=padum bash check_free_nodes.sh
+bash check_free_nodes.sh --cluster pragya
+```
+
+Use `export HPC_CLUSTER=padum` in your Padum shell setup if you prefer a fixed selection; use `pragya` on Pragya. `--cluster auto` explicitly requests detection, overriding the environment. Selection changes labels and queries the local PBS server.
+
+For offline input, pass both captures; detection uses the captured node names:
+
+```bash
+python3 util_pbs.py --nodes-json <pbsnodes.json> --jobs-json <qstat.json>
+```
+
+Unknown clusters use generic node prefixes; mixed known cluster names require an explicit selection. See [Padum availability](docs/padum/06-checking-availability.md) for verification and migration details.
 
 ## Contributing
 

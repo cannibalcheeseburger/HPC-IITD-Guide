@@ -7,10 +7,10 @@
 From this repository on a Padum login node, with Python 3 and pandas available:
 
 ```bash
-bash check_padum_nodes.sh
+bash check_free_nodes.sh
 ```
 
-The wrapper runs `util_pbs.py --cluster padum`. It reports free CPU/GPU counts, unavailable nodes, jobs ordered by requested walltime end, and GPU use by owner. Multi-node jobs use each vnode's allocated resources. ⚠️ An estimated end is not a scheduling guarantee; queue limits, priority, project access, and resource fit still apply. Assignment discrepancies can also reflect limited job visibility or changes between snapshots.
+The shared wrapper runs `util_pbs.py` and detects Padum from PBS node names. Set `HPC_CLUSTER=padum` or pass `--cluster padum` to override; the command option takes precedence. Detection also works with saved node JSON. ✅ This selection was checked against the 2026-10-02 Padum capture and synthetic Pragya data; a live Pragya run of auto-detection remains unverified. It reports free CPU/GPU counts, unavailable nodes, jobs ordered by requested walltime end, and GPU use by owner. Multi-node jobs use each vnode's allocated resources. ⚠️ An estimated end is not a scheduling guarantee; queue limits, priority, project access, and resource fit still apply. Assignment discrepancies can also reflect limited job visibility or changes between snapshots.
 
 To inspect saved output without querying PBS:
 
