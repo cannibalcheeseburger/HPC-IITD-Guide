@@ -32,6 +32,13 @@ version control and use the IITD CA certificate to validate the proxy connection
 new scripts. The exact upstream script revision could not be fetched in this environment, so a line-by-line
 comparison remains pending.
 
+### GitHub SSH access from the Pragya login node ✅ (user report, 2026-10-02)
+
+On the Pragya machine, `ssh -T git@github.com` succeeded over the normal SSH route using an existing
+`~/.ssh/id_rsa` key already registered with GitHub; no proxy or port-443 workaround was needed. This is
+specific to that machine and key. Do not infer that SSH works from every IITD host or from the environment
+used to edit this repository. For a host where direct SSH is blocked, see the [cross-host GitHub guidance](../faq.md#why-does-github-ssh-work-from-one-iitd-machine-but-not-another).
+
 If the proxy ever stops working, restart a login loop in a `tmux` session (see
 [docs/02](02-getting-started.md)).
 

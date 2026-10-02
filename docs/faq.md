@@ -27,3 +27,39 @@ Do not assume so. Pragya's settings and measured behavior are in [its proxy page
 ## How should credentials be handled?
 
 Never commit passwords or tokens, and do not place them in scripts shared with others. Keep any local credential file private and use current institute instructions. This is also emphasized by the community [HPC-101 repository](https://github.com/Aries-IITD/HPC-101).
+
+## Why does GitHub SSH work from one IITD machine but not another?
+
+Network access and SSH keys are machine-specific. A user-reported test from the Pragya login node succeeded with `ssh -T git@github.com` over port 22 using a pre-existing registered key ([details](pragya/04-internet-and-proxy.md#github-ssh-access-from-the-pragya-login-node--user-report-2026-10-02)). In the separate environment used to edit this repository, direct SSH timed out on ports 22 and 443, and HTTPS push lacked credentials. A success on Pragya does not establish that another host has the same route or key.
+
+### Option A: tunnel SSH through that host's HTTP CONNECT proxy
+
+⚠️ This recipe was supplied by the repository owner and has not been tested from this editing environment. It requires a working HTTP CONNECT proxy and OpenBSD `nc` with `-X connect` support; check `nc -h` because other netcat variants use different options. Replace the proxy placeholder using the settings for the host where you will run Git.
+
+```bash
+ssh -o BatchMode=yes -p 443 -o HostKeyAlias=github.com \
+  -o "ProxyCommand=nc -X connect -x <proxy-host>:<proxy-port> %h %p" \
+  -T git@ssh.github.com
+```
+
+If that reports successful GitHub authentication, use the same connection settings for the push:
+
+```bash
+GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=15 -p 443 -o HostKeyAlias=github.com -o Hostname=ssh.github.com -o "ProxyCommand=nc -X connect -x <proxy-host>:<proxy-port> %h %p"' \
+  timeout 100 git push -u origin <branch>
+```
+
+GitHub documents `ssh.github.com` on port 443 as an alternate SSH endpoint; the proxy tunnel is an additional host-specific step ([GitHub instructions](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)).
+
+### Option B: HTTPS remote and local credential setup
+
+When HTTPS works through the host's configured proxy, use an HTTPS remote and authenticate locally with GitHub CLI:
+
+```bash
+git remote set-url origin https://github.com/<owner>/<repo>.git
+gh auth login
+gh auth setup-git
+git push -u origin <branch>
+```
+
+This requires `gh` to be installed and the signed-in account to have push access. Do not paste a token into chat, a script, or the repository. Run either option on the machine whose network and credentials you intend to use.
