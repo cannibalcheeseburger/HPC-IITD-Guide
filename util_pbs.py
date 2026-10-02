@@ -12,10 +12,24 @@ import pandas as pd
 # Node type is derived from the short hostname with trailing digits stripped
 # (amilan017 -> 'amilan'). Add an entry here only to give a prefix a friendlier
 # name; unlisted prefixes still get their own report under the bare prefix.
-NODE_TYPE_MAPPING = {
+PRAGYA_NODE_TYPE_MAPPING = {
     'amilan': 'amilan_gpu',   # 128 CPU cores, 8 GPUs (NVLink)
     'infer': 'infer_gpu',     # 48 CPU cores, 2 GPUs (PCIe)
 }
+
+# Imported from the user's Padum HPC-availibility project (2026-10-02).
+PADUM_NODE_TYPE_MAPPING = {
+    'scai': 'amd_epyc_gpu',
+    'aice': 'icelake_a100_gpu',
+    'vsky': 'skylake_v100_gpu',
+    'khas': 'haswell_k40_gpu',
+    'cice': 'icelake_cpu',
+    'csky': 'skylake_cpu',
+    'chas': 'haswell_cpu',
+    'cgen': 'amd_genoa_cpu',
+    'amd001': 'amd_large_mem_cpu',
+}
+NODE_TYPE_MAPPING = PRAGYA_NODE_TYPE_MAPPING
 
 # Node states that mean "cannot run anything new / not worth waiting on".
 UNAVAILABLE_STATES = ('down', 'offline', 'unknown', 'unresolvable')
@@ -52,10 +66,11 @@ def short_host(name):
     return name.split('.')[0]
 
 
-def node_type_of(node_name, detail):
+def node_type_of(node_name, detail, mapping=None):
     host = short_host(detail.get('Mom') or node_name)
     prefix = re.sub(r'\d+$', '', host)
-    return NODE_TYPE_MAPPING.get(prefix, prefix)
+    mapping = NODE_TYPE_MAPPING if mapping is None else mapping
+    return mapping.get(host, mapping.get(prefix, prefix))
 
 
 def is_unavailable(detail):
@@ -262,6 +277,8 @@ def report_node_type(node_type, node_names, nodes, allocations, now):
 
 def main():
     parser = argparse.ArgumentParser(description='Report free resources and job end times on the PBS cluster.')
+    parser.add_argument('--cluster', choices=('pragya', 'padum'), default='pragya',
+                        help='cluster-specific node labels (default: pragya); queries the local PBS server')
     parser.add_argument('--nodes-json', help="saved 'pbsnodes -F json -a' output (default: run pbsnodes)")
     parser.add_argument('--jobs-json', help="saved 'qstat -f -t -F json' output (default: run qstat)")
     args = parser.parse_args()
@@ -272,7 +289,8 @@ def main():
     nodes = node_data.get('nodes', {})
     if not nodes:
         sys.exit('Error: no nodes found in pbsnodes output.')
-    types = {name: node_type_of(name, detail) for name, detail in nodes.items()}
+    mapping = PADUM_NODE_TYPE_MAPPING if args.cluster == 'padum' else PRAGYA_NODE_TYPE_MAPPING
+    types = {name: node_type_of(name, detail, mapping) for name, detail in nodes.items()}
     now = datetime.fromtimestamp(jobs_data.get('timestamp', datetime.now().timestamp()))
 
     print_job_counts(jobs_data)

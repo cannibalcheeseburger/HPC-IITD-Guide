@@ -2,7 +2,7 @@
 
 ## Purpose and structure
 
-This repository is a practical reference to IIT Delhi's Pragya and Padum HPC systems, plus a small PBS availability tool. `docs/pragya/` contains directly tested Pragya guidance; `docs/padum/` contains cited but unverified Padum guidance; `docs/faq.md` holds cross-cluster answers; `docs/sources/` keeps raw research. `docs/hpc-job-workflow.dot` is the editable source for its PNG. PBS examples live in `examples/pragya/` and `examples/padum/`. `util_pbs.py`, `check_free_nodes.sh`, and the `check_nodes.sh` alias support Pragya only.
+This repository is a practical reference to IIT Delhi's Pragya and Padum HPC systems, plus a shared PBS availability tool. `docs/pragya/` contains directly tested Pragya guidance; `docs/padum/` contains Padum guidance with per-claim verification markers; `docs/faq.md` holds cross-cluster answers; `docs/sources/` keeps raw research. `docs/hpc-job-workflow.dot` is the editable source for its PNG. PBS examples live in `examples/pragya/` and `examples/padum/`. `util_pbs.py` supports both clusters: `check_free_nodes.sh` and the `check_nodes.sh` alias select Pragya labels; `check_padum_nodes.sh` selects Padum labels.
 
 ## Verification and documentation
 
@@ -13,7 +13,9 @@ This repository is a practical reference to IIT Delhi's Pragya and Padum HPC sys
 
 ## Development and checks
 
-There is no build system, test suite, linter, or formatter. On a Pragya login node, `bash check_free_nodes.sh` runs the live availability report and requires Python 3, pandas, `pbsnodes`, and `qstat`. For offline input, use `python util_pbs.py --nodes-json <pbsnodes.json> --jobs-json <qstat.json>`. Do not expect the tool to query Padum.
+The current working environment is Padum, as identified by the user. The former `~/HPC-availibility` project is integrated here; its original source is retained in `docs/sources/padum-availability/`. Use `bash check_padum_nodes.sh` on Padum. Verify individual commands and findings before marking them as directly tested.
+
+There is no build system, test suite, linter, or formatter. On a Pragya login node, `bash check_free_nodes.sh` runs the live availability report and requires Python 3, pandas, `pbsnodes`, and `qstat`. For offline input, use `python util_pbs.py --nodes-json <pbsnodes.json> --jobs-json <qstat.json>`. For Padum offline input, add `--cluster padum`. Cluster selection changes node labels; PBS commands query the local server, so run each wrapper on its corresponding cluster.
 
 For documentation-only changes, review Markdown links and commands against their cited source and verification marker. Avoid submitting cluster jobs just to validate prose unless the task calls for direct testing.
 

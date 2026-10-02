@@ -1,6 +1,6 @@
-# Padum (unverified)
+# Padum
 
-⚠️ No one has directly tested these instructions on Padum. This guide summarizes three community repositories that describe `hpc.iitd.ac.in`; even the identification of that system as Padum is an owner-supplied assumption. Confirm operational details with the HPC administrators or an account holder before relying on them.
+✅ PBS availability reporting was tested on the user-identified Padum environment on 2026-10-02. Other instructions remain unverified. ⚠️ This guide summarizes three community repositories that describe `hpc.iitd.ac.in`; the identification of the current environment as Padum is user-supplied. Confirm operational details with the HPC administrators or an account holder before relying on them.
 
 ## Research-based starting points
 
