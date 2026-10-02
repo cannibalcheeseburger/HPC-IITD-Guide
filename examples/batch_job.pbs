@@ -1,0 +1,31 @@
+#!/bin/bash
+# Batch job template for Pragya.  Submit with:  qsub examples/batch_job.pbs
+# Edit the values marked <...>.  Every job needs ngpus >= 1.
+# A job of this shape (1 CPU + 1 GPU, debug queue, explicit walltime) was accepted by qsub on 2026-09-19.
+
+#PBS -N my_job
+#PBS -P <project_code>
+#PBS -q standard                       # use "debug" for a <= 30 min test
+#PBS -l select=1:ncpus=8:ngpus=1
+#PBS -l walltime=02:00:00              # always set this; debug allows at most 00:30:00
+#PBS -o /home/<you>/logs/my_job.out    # use absolute paths; create the folder first
+#PBS -e /home/<you>/logs/my_job.err
+
+# Start in the directory you submitted from
+cd "$PBS_O_WORKDIR"
+
+# A job starts with a clean environment: load what you need here
+source ~/miniconda3/etc/profile.d/conda.sh
+conda activate <env_name>
+# module load cuda/13.0               # only if you need the CUDA toolkit itself
+
+echo "node: $(hostname)   started: $(date)"
+nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader   # GPU visible?
+
+# Compute nodes reach the internet only through the proxy (needed for wandb, downloads, ...)
+export http_proxy=http://proxy21.iitd.ac.in:3128
+export https_proxy=http://proxy21.iitd.ac.in:3128
+
+python train.py
+
+echo "finished: $(date)"

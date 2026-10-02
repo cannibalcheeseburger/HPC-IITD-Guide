@@ -1,0 +1,1609 @@
+{
+    "timestamp": 1789822583,
+    "pbs_version": "2026.0.0.20250926080934",
+    "pbs_server": "pragya",
+    "nodes": {
+        "amilan001": {
+            "Mom": "amilan001.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "68123.pragya",
+                "69426.pragya",
+                "68123.pragya",
+                "69942.pragya",
+                "68123.pragya",
+                "69941.pragya",
+                "69770.pragya",
+                "69426.pragya",
+                "69941.pragya",
+                "69943.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan001",
+                "hpmem": "0kb",
+                "mem": "1056115348kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986256kb",
+                "vnode": "amilan001"
+            },
+            "resources_assigned": {
+                "ncpus": 54,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1788154329,
+            "last_used_time": 1789819797
+        },
+        "amilan002": {
+            "Mom": "amilan002.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69933.pragya",
+                "67904.pragya",
+                "69918.pragya",
+                "69933.pragya",
+                "69911.pragya",
+                "67527.pragya",
+                "69934.pragya",
+                "67904.pragya",
+                "67527.pragya",
+                "69933.pragya",
+                "67527.pragya",
+                "67904.pragya",
+                "69894.pragya",
+                "69933.pragya",
+                "69934.pragya",
+                "67527.pragya",
+                "69554.pragya",
+                "69894.pragya",
+                "69911.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan002",
+                "hpmem": "0kb",
+                "mem": "1056115328kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986236kb",
+                "vnode": "amilan002"
+            },
+            "resources_assigned": {
+                "mem": "32gb",
+                "ncpus": 67,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789478347,
+            "last_used_time": 1789821701
+        },
+        "amilan003": {
+            "Mom": "amilan003.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69938.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan003",
+                "hpmem": "0kb",
+                "mem": "1056115304kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986212kb",
+                "vnode": "amilan003"
+            },
+            "resources_assigned": {
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "comment": "data",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789767143,
+            "last_used_time": 1789821781
+        },
+        "amilan004": {
+            "Mom": "amilan004.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69951.pragya",
+                "69966.pragya",
+                "68103.pragya",
+                "69864.pragya",
+                "67844.pragya",
+                "68103.pragya",
+                "69966.pragya",
+                "68103.pragya",
+                "69966.pragya",
+                "69870.pragya",
+                "69871.pragya",
+                "69896.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan004",
+                "hpmem": "0kb",
+                "mem": "1056115328kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986236kb",
+                "vnode": "amilan004"
+            },
+            "resources_assigned": {
+                "mem": "50gb",
+                "ncpus": 25,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1788883628,
+            "last_used_time": 1789822263
+        },
+        "amilan005": {
+            "Mom": "amilan005.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69773.pragya",
+                "69969.pragya",
+                "69773.pragya",
+                "69969.pragya",
+                "69895.pragya",
+                "69859.pragya",
+                "69784.pragya",
+                "69865.pragya",
+                "69784.pragya",
+                "69867.pragya",
+                "69895.pragya",
+                "69754.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan005",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan005"
+            },
+            "resources_assigned": {
+                "mem": "64gb",
+                "ncpus": 29,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789559406,
+            "last_used_time": 1789822205
+        },
+        "amilan006": {
+            "Mom": "amilan006.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan006",
+                "hpmem": "0kb",
+                "mem": "1056115320kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986228kb",
+                "vnode": "amilan006"
+            },
+            "resources_assigned": {
+                "ncpus": 1,
+                "ngpus": 1
+            },
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789708210,
+            "last_used_time": 1789820646
+        },
+        "amilan007": {
+            "Mom": "amilan007.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69676.pragya",
+                "69932.pragya",
+                "68102.pragya",
+                "69936.pragya",
+                "69676.pragya",
+                "69936.pragya",
+                "69940.pragya",
+                "69676.pragya",
+                "69913.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan007",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan007"
+            },
+            "resources_assigned": {
+                "mem": "50gb",
+                "ncpus": 37,
+                "ngpus": 7
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1783420378,
+            "last_used_time": 1789822311
+        },
+        "amilan008": {
+            "Mom": "amilan008.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "jobs": [
+                "68095.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan008",
+                "hpmem": "0kb",
+                "mem": "1056115312kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986220kb",
+                "vnode": "amilan008"
+            },
+            "resources_assigned": {
+                "mem": "50gb",
+                "ncpus": 4,
+                "ngpus": 1
+            },
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789704478,
+            "last_used_time": 1789820159
+        },
+        "amilan009": {
+            "Mom": "amilan009.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69810.pragya",
+                "69439.pragya",
+                "67686.pragya",
+                "67687.pragya",
+                "69439.pragya",
+                "67682.pragya",
+                "67912.pragya",
+                "67682.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan009",
+                "hpmem": "0kb",
+                "mem": "1056115332kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986240kb",
+                "vnode": "amilan009"
+            },
+            "resources_assigned": {
+                "mem": "80gb",
+                "ncpus": 69,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1788756487,
+            "last_used_time": 1789814042
+        },
+        "amilan010": {
+            "Mom": "amilan010.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "jobs": [
+                "69541.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan010",
+                "hpmem": "0kb",
+                "mem": "1056115316kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986224kb",
+                "vnode": "amilan010"
+            },
+            "resources_assigned": {
+                "mem": "24gb",
+                "ncpus": 12,
+                "ngpus": 2
+            },
+            "comment": "Marked Offline by PBS Pro fs_check hook due to absence of User asz268109. Exit status is 2",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789806045,
+            "last_used_time": 1789811631
+        },
+        "amilan011": {
+            "Mom": "amilan011.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan011",
+                "hpmem": "0kb",
+                "mem": "1056115288kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986196kb",
+                "vnode": "amilan011"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 1
+            },
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789723138,
+            "last_used_time": 1789800294
+        },
+        "amilan012": {
+            "Mom": "amilan012.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69412.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan012",
+                "hpmem": "0kb",
+                "mem": "1056115320kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986228kb",
+                "vnode": "amilan012"
+            },
+            "resources_assigned": {
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789768899,
+            "last_used_time": 1789768986
+        },
+        "amilan013": {
+            "Mom": "amilan013.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69786.pragya",
+                "69495.pragya",
+                "69440.pragya",
+                "69495.pragya",
+                "69976.pragya",
+                "69786.pragya",
+                "69866.pragya",
+                "69976.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan013",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan013"
+            },
+            "resources_assigned": {
+                "mem": "128gb",
+                "ncpus": 43,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789730534,
+            "last_used_time": 1789821444
+        },
+        "amilan014": {
+            "Mom": "amilan014.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "jobs": [
+                "67952.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan014",
+                "hpmem": "0kb",
+                "mem": "1056115348kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986256kb",
+                "vnode": "amilan014"
+            },
+            "resources_assigned": {
+                "ncpus": 4,
+                "ngpus": 4
+            },
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789704482,
+            "last_used_time": 1789704472
+        },
+        "amilan015": {
+            "Mom": "amilan015.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69971.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan015",
+                "hpmem": "0kb",
+                "mem": "1056115308kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986216kb",
+                "vnode": "amilan015"
+            },
+            "resources_assigned": {
+                "mem": "64gb",
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789577606,
+            "last_used_time": 1789821995
+        },
+        "amilan016": {
+            "Mom": "amilan016.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69792.pragya",
+                "69793.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan016",
+                "hpmem": "0kb",
+                "mem": "1056115312kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986220kb",
+                "vnode": "amilan016"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789807072,
+            "last_used_time": 1789815725
+        },
+        "amilan017": {
+            "Mom": "amilan017.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "67578.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan017",
+                "hpmem": "0kb",
+                "mem": "1056115352kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986260kb",
+                "vnode": "amilan017"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789588256,
+            "last_used_time": 1789648198
+        },
+        "amilan018": {
+            "Mom": "amilan018.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "68767.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan018",
+                "hpmem": "0kb",
+                "mem": "1056115320kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986228kb",
+                "vnode": "amilan018"
+            },
+            "resources_assigned": {
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1788719654,
+            "last_used_time": 1789742807
+        },
+        "amilan019": {
+            "Mom": "amilan019.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "67266.pragya",
+                "69947.pragya",
+                "67266.pragya",
+                "69947.pragya",
+                "69815.pragya",
+                "69828.pragya",
+                "69783.pragya",
+                "69947.pragya",
+                "69664.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan019",
+                "hpmem": "0kb",
+                "mem": "1056115332kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986240kb",
+                "vnode": "amilan019"
+            },
+            "resources_assigned": {
+                "mem": "300gb",
+                "ncpus": 53,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789731489,
+            "last_used_time": 1789820258
+        },
+        "amilan020": {
+            "Mom": "amilan020.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "jobs": [
+                "68090.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan020",
+                "hpmem": "0kb",
+                "mem": "1056115364kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986272kb",
+                "vnode": "amilan020"
+            },
+            "resources_assigned": {
+                "mem": "50gb",
+                "ncpus": 4,
+                "ngpus": 1
+            },
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789709204,
+            "last_used_time": 1789822060
+        },
+        "amilan021": {
+            "Mom": "amilan021.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan021",
+                "hpmem": "0kb",
+                "mem": "1056115332kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986240kb",
+                "vnode": "amilan021"
+            },
+            "resources_assigned": {},
+            "comment": "Marked Offline by PBS Pro fs_check hook due to absence of User eez218227. Exit status is 2",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789680971,
+            "last_used_time": 1789759633
+        },
+        "amilan022": {
+            "Mom": "amilan022.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69772.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan022",
+                "hpmem": "0kb",
+                "mem": "1056115356kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986264kb",
+                "vnode": "amilan022"
+            },
+            "resources_assigned": {
+                "ncpus": 4,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789102303,
+            "last_used_time": 1789812137
+        },
+        "amilan023": {
+            "Mom": "amilan023.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69794.pragya",
+                "67682.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan023",
+                "hpmem": "0kb",
+                "mem": "1056115328kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986236kb",
+                "vnode": "amilan023"
+            },
+            "resources_assigned": {
+                "ncpus": 46,
+                "ngpus": 7
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789664544,
+            "last_used_time": 1789822567
+        },
+        "amilan024": {
+            "Mom": "amilan024.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69009.pragya",
+                "69868.pragya",
+                "69869.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan024",
+                "hpmem": "0kb",
+                "mem": "1056115332kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986240kb",
+                "vnode": "amilan024"
+            },
+            "resources_assigned": {
+                "ncpus": 50,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789751996,
+            "last_used_time": 1789816079
+        },
+        "amilan025": {
+            "Mom": "amilan025.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69787.pragya",
+                "69788.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan025",
+                "hpmem": "0kb",
+                "mem": "1056115324kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986232kb",
+                "vnode": "amilan025"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789518904,
+            "last_used_time": 1789812137
+        },
+        "amilan026": {
+            "Mom": "amilan026.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69820.pragya",
+                "69978.pragya",
+                "69820.pragya",
+                "69441.pragya",
+                "69822.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan026",
+                "hpmem": "0kb",
+                "mem": "1056115344kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986252kb",
+                "vnode": "amilan026"
+            },
+            "resources_assigned": {
+                "ncpus": 21,
+                "ngpus": 4
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789715485,
+            "last_used_time": 1789822038
+        },
+        "amilan027": {
+            "Mom": "amilan027.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69789.pragya",
+                "68662.pragya",
+                "69789.pragya",
+                "68662.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan027",
+                "hpmem": "0kb",
+                "mem": "1056115340kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986248kb",
+                "vnode": "amilan027"
+            },
+            "resources_assigned": {
+                "ncpus": 12,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789705765,
+            "last_used_time": 1789811993
+        },
+        "amilan028": {
+            "Mom": "amilan028.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "job-exclusive",
+            "pcpus": 128,
+            "jobs": [
+                "67913.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan028",
+                "hpmem": "0kb",
+                "mem": "1056115296kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986204kb",
+                "vnode": "amilan028"
+            },
+            "resources_assigned": {
+                "mem": "640gb",
+                "ncpus": 64,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789687862,
+            "last_used_time": 1789687862
+        },
+        "amilan029": {
+            "Mom": "amilan029.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69539.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan029",
+                "hpmem": "0kb",
+                "mem": "1056115300kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986208kb",
+                "vnode": "amilan029"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789477272,
+            "last_used_time": 1789789946
+        },
+        "amilan030": {
+            "Mom": "amilan030.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69790.pragya",
+                "69791.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan030",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan030"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789749440,
+            "last_used_time": 1789812163
+        },
+        "amilan031": {
+            "Mom": "amilan031.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "job-busy",
+            "pcpus": 128,
+            "jobs": [
+                "69449.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan031",
+                "hpmem": "0kb",
+                "mem": "1056115344kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986252kb",
+                "vnode": "amilan031"
+            },
+            "resources_assigned": {
+                "ncpus": 128,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789773454,
+            "last_used_time": 1789772405
+        },
+        "amilan032": {
+            "Mom": "amilan032.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "job-busy",
+            "pcpus": 128,
+            "jobs": [
+                "69450.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan032",
+                "hpmem": "0kb",
+                "mem": "1056115324kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986232kb",
+                "vnode": "amilan032"
+            },
+            "resources_assigned": {
+                "ncpus": 128,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789773533,
+            "last_used_time": 1789773229
+        },
+        "amilan033": {
+            "Mom": "amilan033.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69332.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan033",
+                "hpmem": "0kb",
+                "mem": "1056115328kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986236kb",
+                "vnode": "amilan033"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789752084,
+            "last_used_time": 1789759706
+        },
+        "amilan034": {
+            "Mom": "amilan034.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69315.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan034",
+                "hpmem": "0kb",
+                "mem": "1056115356kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986264kb",
+                "vnode": "amilan034"
+            },
+            "resources_assigned": {
+                "mem": "64gb",
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789737571,
+            "last_used_time": 1789758417
+        },
+        "amilan035": {
+            "Mom": "amilan035.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69314.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan035",
+                "hpmem": "0kb",
+                "mem": "1056115348kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986256kb",
+                "vnode": "amilan035"
+            },
+            "resources_assigned": {
+                "mem": "64gb",
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789570746,
+            "last_used_time": 1789757868
+        },
+        "amilan036": {
+            "Mom": "amilan036.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69824.pragya",
+                "69825.pragya",
+                "69308.pragya",
+                "69962.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan036",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan036"
+            },
+            "resources_assigned": {
+                "mem": "128gb",
+                "ncpus": 52,
+                "ngpus": 4
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789715455,
+            "last_used_time": 1789821606
+        },
+        "amilan037": {
+            "Mom": "amilan037.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69973.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan037",
+                "hpmem": "0kb",
+                "mem": "1056115308kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986216kb",
+                "vnode": "amilan037"
+            },
+            "resources_assigned": {
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789489559,
+            "last_used_time": 1789822124
+        },
+        "amilan038": {
+            "Mom": "amilan038.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan038",
+                "hpmem": "0kb",
+                "mem": "1056115372kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986280kb",
+                "vnode": "amilan038"
+            },
+            "resources_assigned": {},
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789730516,
+            "last_used_time": 1789713110
+        },
+        "amilan039": {
+            "Mom": "amilan039.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69904.pragya",
+                "69912.pragya",
+                "69939.pragya",
+                "69964.pragya",
+                "69926.pragya",
+                "69964.pragya",
+                "69914.pragya",
+                "69917.pragya",
+                "69964.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan039",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan039"
+            },
+            "resources_assigned": {
+                "mem": "112gb",
+                "ncpus": 41,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789695989,
+            "last_used_time": 1789820305
+        },
+        "amilan040": {
+            "Mom": "amilan040.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "68768.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan040",
+                "hpmem": "0kb",
+                "mem": "1056115356kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986264kb",
+                "vnode": "amilan040"
+            },
+            "resources_assigned": {
+                "ncpus": 32,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789705755,
+            "last_used_time": 1789743691
+        },
+        "amilan041": {
+            "Mom": "amilan041.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan041",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan041"
+            },
+            "resources_assigned": {},
+            "comment": "Marked Offline by PBS Pro fs_check hook due to absence of User aiz248314. Exit status is 2",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789625804,
+            "last_used_time": 1789624274
+        },
+        "amilan042": {
+            "Mom": "amilan042.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "job-busy",
+            "pcpus": 128,
+            "jobs": [
+                "69453.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan042",
+                "hpmem": "0kb",
+                "mem": "1056115316kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986224kb",
+                "vnode": "amilan042"
+            },
+            "resources_assigned": {
+                "ncpus": 128,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789776703,
+            "last_used_time": 1789775810
+        },
+        "amilan043": {
+            "Mom": "amilan043.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69795.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan043",
+                "hpmem": "0kb",
+                "mem": "1056115328kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986236kb",
+                "vnode": "amilan043"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789749679,
+            "last_used_time": 1789813715
+        },
+        "amilan044": {
+            "Mom": "amilan044.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69826.pragya",
+                "69827.pragya",
+                "69849.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan044",
+                "hpmem": "0kb",
+                "mem": "1056115332kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986240kb",
+                "vnode": "amilan044"
+            },
+            "resources_assigned": {
+                "ncpus": 17,
+                "ngpus": 3
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789629879,
+            "last_used_time": 1789821611
+        },
+        "amilan045": {
+            "Mom": "amilan045.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "68347.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan045",
+                "hpmem": "0kb",
+                "mem": "1056115340kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986248kb",
+                "vnode": "amilan045"
+            },
+            "resources_assigned": {
+                "ncpus": 16,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789709077,
+            "last_used_time": 1789713025
+        },
+        "amilan046": {
+            "Mom": "amilan046.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "69616.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan046",
+                "hpmem": "0kb",
+                "mem": "1056115332kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986240kb",
+                "vnode": "amilan046"
+            },
+            "resources_assigned": {
+                "ncpus": 8,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789712189,
+            "last_used_time": 1789798651
+        },
+        "amilan047": {
+            "Mom": "amilan047.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 128,
+            "jobs": [
+                "68348.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan047",
+                "hpmem": "0kb",
+                "mem": "1056115344kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986252kb",
+                "vnode": "amilan047"
+            },
+            "resources_assigned": {
+                "ncpus": 16,
+                "ngpus": 8
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789705845,
+            "last_used_time": 1789713025
+        },
+        "amilan048": {
+            "Mom": "amilan048.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan048",
+                "hpmem": "0kb",
+                "mem": "1056115324kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986232kb",
+                "vnode": "amilan048"
+            },
+            "resources_assigned": {},
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789733582,
+            "last_used_time": 1789709190
+        },
+        "amilan049": {
+            "Mom": "amilan049.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan049",
+                "hpmem": "0kb",
+                "mem": "1056115336kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986244kb",
+                "vnode": "amilan049"
+            },
+            "resources_assigned": {},
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789729735,
+            "last_used_time": 1789704489
+        },
+        "infer01": {
+            "Mom": "infer01.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 48,
+            "jobs": [
+                "69719.pragya",
+                "69903.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "pci",
+                "host": "infer01",
+                "hpmem": "0kb",
+                "mem": "527661736kb",
+                "ncpus": 48,
+                "ngpus": 2,
+                "vmem": "1064532644kb",
+                "vnode": "infer01"
+            },
+            "resources_assigned": {
+                "ncpus": 9,
+                "ngpus": 2
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789726339,
+            "last_used_time": 1789816611
+        },
+        "infer02": {
+            "Mom": "infer02.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "free",
+            "pcpus": 48,
+            "jobs": [
+                "69875.pragya",
+                "69902.pragya"
+            ],
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "pci",
+                "host": "infer02",
+                "hpmem": "0kb",
+                "mem": "527661744kb",
+                "ncpus": 48,
+                "ngpus": 2,
+                "vmem": "1064532652kb",
+                "vnode": "infer02"
+            },
+            "resources_assigned": {
+                "ncpus": 9,
+                "ngpus": 2
+            },
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789812160,
+            "last_used_time": 1789816607
+        },
+        "amilan050": {
+            "Mom": "amilan050.head.cm.pragya.iitd.ac.in",
+            "ntype": "PBS",
+            "state": "offline",
+            "pcpus": 128,
+            "resources_available": {
+                "arch": "linux",
+                "gpu_link": "nvlink",
+                "host": "amilan050",
+                "hpmem": "0kb",
+                "mem": "1056115356kb",
+                "ncpus": 128,
+                "ngpus": 8,
+                "vmem": "1592986264kb",
+                "vnode": "amilan050"
+            },
+            "resources_assigned": {},
+            "comment": "Unable to clean up one or more cgroups",
+            "resv_enable": "True",
+            "sharing": "default_shared",
+            "license": "l",
+            "last_state_change_time": 1789729736,
+            "last_used_time": 1789704496
+        }
+    }
+}
