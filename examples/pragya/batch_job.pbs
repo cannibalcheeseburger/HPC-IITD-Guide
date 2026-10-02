@@ -1,5 +1,5 @@
 #!/bin/bash
-# Batch job template for Pragya.  Submit with:  qsub examples/batch_job.pbs
+# Batch job template for Pragya. Submit with: qsub examples/pragya/batch_job.pbs
 # Edit the values marked <...>.  Every job needs ngpus >= 1.
 # A job of this shape (1 CPU + 1 GPU, debug queue, explicit walltime) was accepted by qsub on 2026-09-19.
 

@@ -22,6 +22,16 @@ Scripts named `proxy.sh` do exactly that in a loop. On the shared login nodes ma
 your script will often just print `Already logged in` and exit. That is fine: the IP is already
 authenticated and the proxy works without your script running.
 
+### Proxy script review (2026-10-02)
+
+The account-local `~/cert/proxy.sh` follows the login/session-refresh pattern described by the community
+[HPC-Details repository](https://github.com/mahesh-keswani/HPC-Details). I reviewed the local copy without
+including its credential values here. It stores credentials in the script and uses `curl -k`, which skips
+TLS certificate validation. It is therefore not copied into this repository. Keep credentials out of
+version control and use the IITD CA certificate to validate the proxy connection; do not copy `-k` into
+new scripts. The exact upstream script revision could not be fetched in this environment, so a line-by-line
+comparison remains pending.
+
 If the proxy ever stops working, restart a login loop in a `tmux` session (see
 [docs/02](02-getting-started.md)).
 

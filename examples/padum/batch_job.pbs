@@ -1,0 +1,15 @@
+#!/bin/sh
+# ⚠️ Illustrative only. Resource names and policy are unverified on Padum.
+# Confirm project, queue, walltime, and resource requirements before submitting.
+#PBS -N <job_name>
+#PBS -P <project_code>
+#PBS -q standard
+#PBS -l select=1:ncpus=1:ngpus=1
+#PBS -l walltime=01:00:00
+
+echo "Job: $PBS_JOBID"
+cat "$PBS_NODEFILE"
+cd "$PBS_O_WORKDIR" || exit 1
+
+# Load required modules / activate an environment only after confirming the
+# current Padum setup. Run your program here.

@@ -8,7 +8,7 @@ bash check_free_nodes.sh
 ```
 
 It takes about a second and needs only `python3`, `pandas`, and the PBS tools (`pbsnodes`, `qstat`) on a login node.
-Source: [`util_pbs.py`](../util_pbs.py).
+Source: [`util_pbs.py`](../../util_pbs.py).
 
 ## What it prints
 

@@ -23,10 +23,10 @@ qsub -I -q debug -P <project_code> -l select=1:ncpus=1:ngpus=1 -l walltime=00:30
 
 ## Batch job ✅ (submission tested)
 
-See [`examples/batch_job.pbs`](../examples/batch_job.pbs).
+See [`examples/pragya/batch_job.pbs`](../../examples/pragya/batch_job.pbs).
 
 ```bash
-qsub examples/batch_job.pbs        # prints a job id like 70119.pragya
+qsub examples/pragya/batch_job.pbs # prints a job id like 70119.pragya
 ```
 
 Useful `#PBS` lines:

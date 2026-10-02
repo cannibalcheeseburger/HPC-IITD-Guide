@@ -1,0 +1,28 @@
+digraph hpc_workflow {
+  graph [rankdir=TB, bgcolor="#f8fafc", pad="0.28", nodesep="0.35", ranksep="0.48",
+         fontname="DejaVu Sans", label="IIT Delhi HPC job workflow", labelloc=t,
+         fontsize=23, fontcolor="#102a43"];
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12,
+        color="#9fb3c8", penwidth=1.3, margin="0.18,0.12", fontcolor="#102a43"];
+  edge [fontname="DejaVu Sans", fontsize=10, color="#486581", penwidth=1.4, arrowsize=0.8];
+
+  start [label="Choose cluster guide\nPragya or Padum", fillcolor="#d9eafd", color="#3b82b8"];
+  login [label="Connect to a login node\nSSH; edit files and submit jobs", fillcolor="#e6f4ff"];
+  stage [label="Prepare inputs and environment\nUse documented storage and modules", fillcolor="#e6f4ff"];
+  submit [label="Request resources with PBS\nqsub interactive or batch job\nUse that cluster's queue and resource rules", fillcolor="#d9f2e6", color="#3c9b70"];
+  state [label="Check job state\nqstat -u $USER", shape=diamond, style=filled, fillcolor="#fff1cc", color="#d69e2e"];
+  diagnose [label="Still queued?\nqstat -f <job_id>; read scheduler comment\nCheck resource fit, access, and limits", fillcolor="#fff3e0", color="#d69e2e"];
+  revise [label="Wait, or adjust a valid request\nAsk the project/HPC admin about access or limits", fillcolor="#fff3e0", color="#d69e2e"];
+  run [label="Running on allocated compute node\nCheck logs; inspect your CPU/GPU use\ntop and nvidia-smi", fillcolor="#e2f0d9", color="#70a33b"];
+  done [label="Job finishes\nReview output and errors", fillcolor="#e2f0d9", color="#70a33b"];
+  retain [label="Keep important results\nFollow that cluster's storage and cleanup policy", fillcolor="#d9eafd", color="#3b82b8"];
+  caution [label="Do not run computation on a shared login node\nCluster-specific commands, limits, paths, and proxy settings differ", shape=note, fillcolor="#fff8db", color="#d69e2e", fontsize=11];
+
+  start -> login -> stage -> submit -> state;
+  state -> diagnose [label="queued"];
+  diagnose -> revise;
+  revise -> state [label="check again"];
+  state -> run [label="running"];
+  run -> done -> retain;
+  login -> caution [style=dashed, arrowhead=none, constraint=false];
+}

@@ -11,9 +11,10 @@ cluster from the one this repo calls "pragya" (amilan/infer nodes, `proxy21.iitd
 Working assumption: **this is Padum.** Not confirmed by name anywhere in the fetched pages — the name "Padum"
 came from the repo owner, not from these sources.
 
-The official site, https://supercomputing.iitd.ac.in, did not return usable content via WebFetch (likely
-JS-rendered). Re-fetch it with a real browser/tool, or check there directly, before publishing anything as
-fact. It was cited by the community repos for a charging page (`?charge`) and as the general HPC-IITD site.
+The official site initially failed direct retrieval. A later indexed search (2026-10-02) exposed the current
+home page, which labels **PADUM Hauz Khas** and **PARAM-PRAGYA Sonipat**, plus official FAQ and workshop
+material. Direct page fetches can still time out or require JavaScript. Official material below is
+documentary evidence, not direct testing on an account; dated details and operational commands stay ⚠️.
 
 ## Source 1: github.com/kanha95/HPC-IIT-Delhi
 
@@ -237,14 +238,14 @@ itself so the job can reach the internet while running.
 
 ## Source 3: github.com/mahesh-keswani/HPC-Details
 
-This is the repo we already used for Pragya's `proxy.sh` and `research_proxy.sh` (see `docs/04`). Its
-`readme.md` just points to the official site and `hpchelp@iitd.ac.in`, and describes the repo as GPU-node
-tips / proxy+network / misc, same structure as Source 2. The `proxy.sh`/`research_proxy.sh` scripts in it
-are the ones already copied onto this account (`~/cert/proxy.sh`), so this source is likely about the
-**same proxy infrastructure as Pragya**, not evidence of a separate Padum-only proxy. Treat Source 1's and
-2's proxy instructions above as the more likely Padum-specific ones, pending confirmation.
+This is the repo already used as a source for Pragya's `proxy.sh` and `research_proxy.sh` (see
+`docs/pragya/04-internet-and-proxy.md`). It describes general IITD HPC GPU-node and proxy/network tips,
+and appears to discuss the Padum system in its community guidance. The shared institute context makes
+some concepts plausibly relevant to both clusters, but does not prove that hostnames, scripts, access
+rules, or performance match. Pragya pages retain direct observations; Padum claims remain ⚠️ until checked.
+The repository's direct URL is https://github.com/mahesh-keswani/HPC-Details.
 
-## Open questions this raises (add to docs/08 or a padum-specific equivalent)
+## Open questions this raises (see `docs/padum/08-open-questions.md`)
 
 - Is "Padum" actually the name of the `hpc.iitd.ac.in` cluster these three repos describe? Not confirmed
   by any fetched source — only by the repo owner's own statement.
@@ -261,3 +262,27 @@ are the ones already copied onto this account (`~/cert/proxy.sh`), so this sourc
   but worth warning users about even with a caveat either way.
 - `amgr` balance tool, `gpu_util_checker.py`, and the FAQs page content were not actually retrieved — only
   described secondhand. Fetch them directly if/when someone has a Padum account to test against.
+
+## Source 4: IIT Delhi official HPC material (retrieved 2026-10-02)
+
+- [Official HPC homepage](https://supercomputing.iitd.ac.in/) currently distinguishes PADUM (Hauz Khas)
+  from PARAM-PRAGYA (Sonipat). This supports the cluster names; it does not explicitly tie the legacy
+  `hpc.iitd.ac.in` hostname to Padum.
+- [Official PBS FAQ/example page](https://supercomputing.iitd.ac.in/cesm_instruction.php) shows a PBS
+  `qsub` error for a project's maximum queued jobs and another error saying a project cannot use `high`.
+  It also documents ACL-based file sharing. Its examples look legacy and are not proof of current
+  policies; use the messages as diagnostic leads and confirm with admins.
+- [PADUM workshop slides, 2023-01-12](https://supercomputing.iitd.ac.in/workshop_files/HPC-2023-01-12.pdf)
+  recommend avoiding multi-minute work on login nodes, profiling and estimating resources before
+  production jobs, working from scratch, backing up important outputs in home, and reporting unusual
+  errors or corruption to `hpchelp@iitd.ac.in`. For resource monitoring, they suggest getting allocated
+  node names with `qstat -n <job_id>`, then using `top -u $USER` for CPU processes and `nvidia-smi`
+  (or `nvidia-smi -l 1`) for GPU use on those nodes. This should only be done for one's own allocation.
+- [HPC tutorial, 2024-05-02](https://supercomputing.iitd.ac.in/workshop_files/HPC_20240502.pdf)
+  is an official newer training source; the fetched index exposes its title and support contact, but not
+  enough text to distill more specific procedures safely.
+- The current site reports total system storage, but those totals are not individual quotas. They do not
+  resolve the conflicting community-reported home/scratch quotas above.
+- The original community guide mentions clearing a GPU process with `kill -9` after CUDA errors. This is
+  unsafe as a general fix on shared systems and is not recommended here: inspect only processes in your
+  own job and ask support if resources remain stuck.
