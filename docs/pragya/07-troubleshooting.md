@@ -56,7 +56,7 @@ priority must all allow the job to run.
 |---|---|---|
 | `curl`/`pip`/`git` time out ✅ | No direct internet | Set `http_proxy`/`https_proxy` ([docs/04](04-internet-and-proxy.md)) |
 | Downloads are ~0.4 MB/s ✅ | Per-connection throttle | Use `aria2c -x 8 -s 8`; see [docs/04](04-internet-and-proxy.md) |
-| `proxy.sh` prints `Already logged in` and exits ✅ | The IP is already authenticated (often by another user's script) | Nothing to fix; the proxy works |
+| `proxy.sh` prints `Already logged in` ⚠️ | Older helpers exit; the locally reviewed revision keeps retrying | Check which copy you run and test connectivity separately; see [retry behavior and verification scope](04-internet-and-proxy.md#proxy-login-) |
 | Proxy stops working | Login session expired and nobody is refreshing it | Run the proxy login script in `tmux` |
 | `curl: (28) timeout` on direct mirrors | Only `mirrors.iitd.ac.in` (Ubuntu/Debian) works without the proxy | Use the proxy for everything else |
 

@@ -18,9 +18,23 @@ Quick test: `curl -sI https://pypi.org | head -1`
 ## Proxy login ✅
 
 The campus proxy authenticates by IP address, using a web login that must be refreshed every ~2 minutes.
-Scripts named `proxy.sh` do exactly that in a loop. On the shared login nodes many people run one, so
-your script will often just print `Already logged in` and exit. That is fine: the IP is already
-authenticated and the proxy works without your script running.
+Scripts named `proxy.sh` do exactly that in a loop. Older copies exit on `Already logged in`;
+the locally reviewed revision below keeps retrying. That response alone does not establish that
+your own session is active or that downloads will continue working.
+
+### Retry on an existing proxy session ⚠️ (local code review, 2026-10-19)
+
+The current `~/proxy.sh` on the local `strider` host prints
+`Already logged in (another session); retrying in 30s` instead of exiting. Its login function
+sleeps for 20 seconds; when the response lacks `logged in successfully`, the outer loop sleeps
+another 10 seconds before requesting a new session and trying again. The effective delay on
+that path is about 30 seconds plus request time. After a successful login, it refreshes every
+120 seconds and returns to the login loop if a refresh fails.
+
+This keeps the helper available to retry when the existing session ends. It does not guarantee
+connectivity while waiting. These details were checked against the local script, not exercised
+on Pragya or Padum; older `~/cert/proxy.sh` copies may differ. Use your own authorized login
+and verify connectivity separately. The credential-bearing script is not included here.
 
 ### Proxy script review (2026-10-02)
 
