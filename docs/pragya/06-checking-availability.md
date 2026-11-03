@@ -1,5 +1,22 @@
 # 6. Checking availability
 
+## Latest availability snapshot ✅ (2026-10-13, approximately 03:07 IST)
+
+A read-only report on `login02` with Conda `pragya` exited 0: 80 running, 0 queued and 23 held jobs. The `amilan_gpu` group reported 2856 free CPUs and 104 free GPUs; `infer_gpu` reported 96 free CPUs and 4 free GPUs. Several amilan nodes each reported 128 free CPUs and 8 free GPUs, including amilan037, amilan042 and amilan044. Four nodes were offline/down, and the reporter flagged possibly stale assignments on three nodes. These are PBS snapshots, not admission guarantees or fresh hardware identification. No jobs were submitted.
+
+## Remote execution verified ✅ (2026-10-11)
+
+The existing `~/HPC-IITD-Guide` copy on this cluster completed `bash check_free_nodes.sh` with exit status 0 after loading the account's `~/.bashrc` via `bash -ic` and activating Conda environment `pragya`:
+
+```bash
+conda activate pragya
+cd ~/HPC-IITD-Guide
+bash check_free_nodes.sh
+```
+
+The remote copy reported 149 running, 27 queued, and 22 held jobs; 30 free GPUs in the `amilan_gpu` group and 4 in `infer_gpu`. Its output included job-owner details and assignment-discrepancy warnings. These are historical availability snapshots, not resource limits or guarantees of scheduling. Remote checkout revisions were not compared with this repository; output formats differed between the two hosts. No jobs were submitted and no inference was run.
+
+
 Before waiting on a job, look at what is actually free.
 
 ```bash

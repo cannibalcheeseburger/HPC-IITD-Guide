@@ -6,9 +6,20 @@
 ssh <kerberos_id>@<login-host>
 ```
 
-⚠️ The external login hostname was not verified here; get it from the IIT Delhi HPC page or admins.
+✅ On 2026-10-11, key-authenticated SSH to `pragya.iitd.ac.in` succeeded from the tested client with an existing account and matching saved host key. Connections reached `login01.head.cm.pragya.iitd.ac.in` and `login03.head.cm.pragya.iitd.ac.in`. This does not establish off-campus access requirements or eligibility for other accounts.
+
 You land on a login node (`login01`, `login03`, ...). Login nodes are shared: use them for editing files,
 submitting jobs and light checks, not for computation.
+
+### Remote commands using the existing bashrc ✅ (2026-10-11)
+
+For an SSH command that needs the account's existing `~/.bashrc` setup, explicitly start interactive Bash:
+
+```bash
+ssh <kerberos_id>@pragya.iitd.ac.in 'bash -ic '\''hostname -f; command -v qsub; command -v qstat'\'''
+```
+
+On the tested account, both PBS commands resolved under `/opt/pbs/2026.0.0/bin`; `qstat -B` reported server `pragya` as active. `ollama` was not on this shell's PATH; this is not proof that no installation exists elsewhere. Without a terminal, Bash printed harmless job-control warnings while executing the commands successfully. No shell configuration was changed and no jobs were submitted.
 
 ## One-time shell setup ✅
 

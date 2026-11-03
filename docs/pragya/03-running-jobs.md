@@ -17,9 +17,52 @@ qsub -I -q debug -P <project_code> -l select=1:ncpus=1:ngpus=1 -l walltime=00:30
 ```
 
 - `-q debug` = short-test queue, max 30 min. For longer work drop it (goes to `standard`, up to 96 h).
-- Without `-l walltime=...` the job requests 48 h and `debug` refuses it.
+- Without explicit walltime, historical requests were seen with 48 h; the standard queue default was 1 h on 2026-10-11. Always request walltime explicitly; debug only allows up to 30 min.
 - The command waits in your terminal until a GPU is free. Ctrl-C cancels it.
 - Interactive jobs need your terminal alive. For anything long, use a batch job.
+
+## One-hour interactive allocation from your local machine
+
+✅ Read-only checks on 2026-10-11 confirmed `default_queue = standard`, standard enabled/started with a 96-hour maximum, at least one GPU required, and a one-hour queue default. Debug was enabled/started with a 30-minute maximum, so a one-hour request does not fit debug. The combined standard/high caps remained 242 GPUs and 3898 CPUs. These are dated policy observations, not a promise of immediate admission.
+
+Use an interactive SSH session so `qsub -I` has a terminal. Load shell setup and activate Conda in the same shell that will submit (a separate `bash -ic 'conda activate ...'` exits without changing its parent shell):
+
+```bash
+ssh -t <kerberos_id>@pragya.iitd.ac.in
+source ~/.bashrc
+conda activate pragya
+qsub -I -lselect=1:ncpus=16:ngpus=1 -lwalltime=01:00:00 -P <project_code>
+```
+
+Omitting `-q` uses the current default queue, verified above as standard. While the foreground command waits, use Ctrl-C to cancel, or use `qdel <jobid>` from a second logged-in terminal. Once admitted, check `hostname -f`, `$PBS_JOBID`, and `nvidia-smi` before using the allocation. Do not assume Conda initialization carries into the compute-node shell; check and activate there as needed.
+
+✅ A pre-existing job for the tested account used the user-supplied project in high with `select=1:ncpus=16:ngpus=1`. No new job was submitted during these checks. Existing project use in high is not proof of new-job eligibility in standard. Inspect `qstat -f <jobid>` for the actual queue, state, allocation and waiting reason; avoid a purported "dry run" implemented by submitting and deleting a real job.
+
+For persistent model serving, use a PBS script rather than keeping an interactive terminal alive. `qsub <script.pbs>` returns a job ID; the script explicitly initializes its environment and runs the foreground server within the allocation. ✅ The installed `qsub` usage also lists `qsub [options] -- command [arg1 ...]` for direct executable submission; without `--`, command arguments are not a valid replacement for a script. Serving, GPU fit and SSH forwarding still require separate tests. Do not export the entire login environment with `-V` unless necessary; it can propagate secrets and unwanted proxy settings.
+
+## Short four-GPU allocation verified ✅ (2026-10-12)
+
+A live interactive request with `select=1:ncpus=64:ngpus=4`, `walltime=00:10:00`, and the account's project was accepted into standard and ran on `amilan040`. The compute-node shell printed its allocated job ID; `nvidia-smi --query-gpu=name,memory.total --format=csv,noheader` exposed four NVIDIA A100-SXM4-80GB GPUs, each reporting 81920 MiB. This identifies the GPUs visible in this allocation, not every Pragya node's hardware.
+
+```bash
+qsub -I -lselect=1:ncpus=64:ngpus=4 -lwalltime=00:10:00 -P <project_code>
+```
+
+After read-only hostname/GPU checks, the test shell exited. `qstat -xf -F json <test_jobid>` confirmed finished state, exit status 0, 64 CPUs / 4 GPUs and the requested 10-minute walltime. The pre-existing 48-hour job remained running and was not modified. Quick admission on this occasion does not prove shorter walltime always improves scheduling; resource fit, queue/project rules and current load still apply.
+
+⚠️ In the same session, the user reported Ollama working with Qwen. Model tag, runtime endpoint, GPU offload and inference output were not independently captured in this report; distinguish that user confirmation from the directly verified allocation above.
+
+## Ollama context and simultaneous workers ✅ (2026-10-12)
+
+A separate 30-minute interactive allocation requested `select=1:ncpus=32:ngpus=2` and ran on `amilan015`, with two A100 80GB GPUs. Local Hermes CLI workers connected through loopback SSH tunnels; the login host was only the jump host, not an inference host. Ollama 0.40.3 served `qwen3.8:27b` (Q4_K_M) from account-owned `/flash` storage.
+
+- Increasing context from 65536 to 131072 succeeded. Both split-server inventories reported `context_length=131072`; each runner logged 66/66 layers offloaded to GPU and a 131072-token slot. This verifies capacity, not accurate retrieval from a full 128K prompt.
+- Setting `OLLAMA_NUM_PARALLEL=2` on one 128K server still produced only one runner slot (`n_seq_max=1`) in this experiment. Two launched workers queued their main generation; configuration alone did not prove concurrent inference.
+- Two separate loopback servers, each restricted with `CUDA_VISIBLE_DEVICES` to a different GPU within this allocation, supported simultaneously streaming Hermes workers. Their streamed-text intervals overlapped by 20.238 seconds. Do not select GPUs outside the scheduler allocation or generalize this observed backend behavior to all Ollama models/releases.
+- A focused read-only review of prior incorrect proposals took 25.865 seconds for the successful 64K solo run and 49.578 seconds for the 128K solo run. The split workers took about 101.560 seconds wall-clock, followed by 70.107 seconds for Qwen synthesis. These are single observations with different server topology/cache states, not controlled throughput measurements.
+- More workers did not demonstrate better integrated correctness here: solo and team outputs missed an independently reproduced Python `str.format()` crash (`KeyError: 'CONDA_DEFAULT_ENV'`), and the synthesis retained false PBS claims. In particular, it wrongly rejected scriptless `qsub -I`, despite that being the actual working allocation command. All operational proposals still require independent verification.
+
+The temporary servers were stopped and the interactive shell exited; `qsub` reported the evaluation job completed. Only evaluation tunnels were closed. Experimental profiles and local raw traces remain available; the default Hermes model was not changed. This was a reconstructed review with short prompts and separate Hermes CLI processes, not a full-conversation A/B, native-subagent test, or long-context recall benchmark.
 
 ## Batch job ✅ (submission tested)
 
