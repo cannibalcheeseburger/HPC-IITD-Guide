@@ -30,11 +30,11 @@ Never commit passwords or tokens, and do not place them in scripts shared with o
 
 ## Why does GitHub SSH work from one IITD machine but not another?
 
-Network access and SSH keys are machine-specific. A user-reported test from the Pragya login node succeeded with `ssh -T git@github.com` over port 22 using a pre-existing registered key ([details](pragya/04-internet-and-proxy.md#github-ssh-access-from-the-pragya-login-node--user-report-2026-10-02)). In the separate environment used to edit this repository, direct SSH timed out on ports 22 and 443, and HTTPS push lacked credentials. A success on Pragya does not establish that another host has the same route or key.
+Network access and SSH keys are machine-specific. A user-reported test from the Pragya login node succeeded with `ssh -T git@github.com` over port 22 using a pre-existing registered key ([details](pragya/04-internet-and-proxy.md#github-ssh-access-from-the-pragya-login-node--user-report-2026-10-02)). In the separate environment used to edit this repository, direct SSH timed out on ports 22 and 443, and HTTPS push lacked credentials; the proxy tunnel in Option A worked. A success on Pragya does not establish that another host has the same route or key.
 
 ### Option A: tunnel SSH through that host's HTTP CONNECT proxy
 
-⚠️ This recipe was supplied by the repository owner and has not been tested from this editing environment. It requires a working HTTP CONNECT proxy and OpenBSD `nc` with `-X connect` support; check `nc -h` because other netcat variants use different options. Replace the proxy placeholder using the settings for the host where you will run Git.
+✅ Tested 2026-11-03 from the environment used to edit this repository: `git push` succeeded over port 443 through `proxy21.iitd.ac.in:3128` (read-only `git ls-remote` also worked through that proxy). The recipe was supplied by the repository owner. ⚠️ Other hosts may use a different proxy. It requires a working HTTP CONNECT proxy and OpenBSD `nc` with `-X connect` support; check `nc -h` because other netcat variants use different options. Replace the proxy placeholder using the settings for the host where you will run Git.
 
 ```bash
 ssh -o BatchMode=yes -p 443 -o HostKeyAlias=github.com \
@@ -48,6 +48,18 @@ If that reports successful GitHub authentication, use the same connection settin
 GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=15 -p 443 -o HostKeyAlias=github.com -o Hostname=ssh.github.com -o "ProxyCommand=nc -X connect -x <proxy-host>:<proxy-port> %h %p"' \
   timeout 100 git push -u origin <branch>
 ```
+
+To make a plain `git push` use the tunnel, add this to `~/.ssh/config` on that host. ✅ Verified on 2026-11-03 with `git ls-remote origin` and a `git push` using the equivalent options above. It applies to every `ssh github.com` connection from that account.
+
+```
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    HostKeyAlias github.com
+    ProxyCommand nc -X connect -x <proxy-host>:<proxy-port> %h %p
+```
+
+Use an SSH remote (`git@github.com:<owner>/<repo>.git`) and run `chmod 600 ~/.ssh/config`. Then `git push` needs no extra options.
 
 GitHub documents `ssh.github.com` on port 443 as an alternate SSH endpoint; the proxy tunnel is an additional host-specific step ([GitHub instructions](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)).
 
